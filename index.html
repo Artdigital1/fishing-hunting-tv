@@ -791,7 +791,7 @@
     <div class="hero-form-card">
       <h3>Get In Touch</h3>
       <p>Sponsorships, media kits, gear partnerships — reach out today.</p>
-      <form id="heroForm" action="https://formspree.io/f/xkoprlwo" method="POST">
+      <form id="heroForm" action="https://formspree.io/f/mqewryng" method="POST">
         <div class="form-group">
           <label for="hero-name">Full Name</label>
           <input type="text" id="hero-name" name="name" placeholder="Your name" required />
@@ -811,6 +811,7 @@
             <option value="Other">Other</option>
           </select>
         </div>
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
         <button type="submit" class="btn btn-primary form-submit">Send Message →</button>
       </form>
       <div class="form-success" id="heroSuccess">
@@ -1051,7 +1052,7 @@
       <div class="contact-form-card">
         <h3>Contact Our Team</h3>
         <p>Have a question or need help? Our team is here for you!</p>
-        <form id="contactForm" action="https://formspree.io/f/xkoprlwo" method="POST">
+        <form id="contactForm" action="https://formspree.io/f/mqewryng" method="POST">
           <div class="form-group">
             <label for="c-name">Full Name</label>
             <input type="text" id="c-name" name="name" placeholder="First and Last" required />
@@ -1075,6 +1076,7 @@
             <label for="c-message">Comment or Message</label>
             <textarea id="c-message" name="message" placeholder="Tell us how we can help…"></textarea>
           </div>
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
           <button type="submit" class="btn btn-primary form-submit">Send Message →</button>
         </form>
         <div class="form-success" id="contactSuccess">
@@ -1163,6 +1165,8 @@
           form.style.display = 'none';
           const success = document.getElementById(successId);
           success.style.display = 'block';
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'generate_lead', form_id: formId });
         } else {
           btn.disabled = false;
           btn.textContent = 'Send Message →';
